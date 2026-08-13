@@ -71,12 +71,32 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
 #view-resume ul.work li::before{content:"";position:absolute;left:2px;top:22px;width:9px;height:9px;background:var(--lime);border:2px solid var(--pine);border-radius:50%}
 #view-resume ul.work b{color:var(--deep)}
 #view-resume ul.work .n{font-variant-numeric:tabular-nums;font-weight:700;color:var(--pine);background:#e8efdd;border-radius:5px;padding:1px 7px;font-size:12.5px;white-space:nowrap}
+#view-resume .work-more{margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+#view-resume .work-more h4{font-size:11.5px;letter-spacing:.2em;color:var(--pine);font-weight:700;text-transform:uppercase;margin-bottom:12px}
+#view-resume ul.minor{list-style:none}
+#view-resume ul.minor li{display:flex;flex-wrap:wrap;gap:2px 12px;padding:6px 0;font-size:14px;color:var(--muted)}
+#view-resume ul.minor b{color:var(--deep);font-weight:800;min-width:124px}
 #view-resume .skills{display:grid;grid-template-columns:130px 1fr;gap:12px 20px;font-size:14.5px}
 #view-resume .skills dt{font-weight:800;color:var(--pine);letter-spacing:.02em}
 #view-resume .skills dd{color:var(--ink)}
 #view-resume .chip{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:2px 11px;margin:2px 3px 2px 0;font-size:13px;font-weight:600}
 #view-resume .note{margin-top:64px;padding:16px 20px;border-left:4px solid var(--pine);background:var(--card);border-radius:0 10px 10px 0;font-size:13.5px;color:var(--muted)}
-@media print{#view-resume{background:#fff}#view-resume .sheet{padding:20px 0}}
+@media print{
+  #view-resume{background:#fff;font-size:14px}
+  #view-resume .sheet{padding:0;max-width:none}
+  #view-resume h1{font-size:34px}
+  #view-resume .head-meta{margin-top:12px;font-size:13px}
+  #view-resume .stats{margin:22px 0 0}
+  #view-resume .stat{padding:13px 16px}
+  #view-resume .stat b{font-size:22px}
+  #view-resume section{margin-top:26px}
+  #view-resume h2{padding-top:12px;margin-bottom:14px;font-size:19px}
+  #view-resume .intro p{font-size:14.5px;line-height:1.7}
+  #view-resume ul.work li{padding:8px 0 8px 24px}
+  #view-resume ul.work li::before{top:16px}
+  #view-resume .skills{gap:8px 20px}
+  #view-resume .note{margin-top:28px;padding:12px 16px}
+}
 @media (max-width:560px){#view-resume .sheet{padding:40px 22px 72px}#view-resume .skills{grid-template-columns:1fr;gap:2px 0}#view-resume .skills dd{margin-bottom:10px}}
 
 /* ==================== 02. 기술경력서 ==================== */
@@ -233,7 +253,7 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
 
     <section class="intro">
       <h2><span class="no">01</span>소개</h2>
-      <p>기후테크 스타트업 리빗(Livit)에서 3년 8개월간 기업용 탄소회계 SaaS <strong>Tansolution</strong>을 중심으로 B2B 웹 서비스를 개발해온 프론트엔드 개발자입니다. React·TypeScript 기반으로 고객사 담당자가 실제 업무에 사용하는 웹 서비스 화면과 대시보드를 개발하는 것이 주력이며, Next.js 랜딩 사이트를 단독으로 구축·운영하고 Playwright E2E 테스트 자동화까지 담당 범위를 넓혀 왔습니다. 한 제품의 <strong>초기 기획·구축부터 대기업 고객(금융·제조) 커스터마이징까지</strong> 전 과정에 참여했습니다.</p>
+      <p>기후테크 스타트업 리빗(Livit)에서 3년 8개월간 기업용 탄소회계 SaaS Tansolution을 만들어온 프론트엔드 개발자입니다. React·TypeScript로 고객사 담당자가 매일 쓰는 화면을, <strong>기획·구축부터 대기업 고객 커스터마이징까지</strong> 맡았습니다.</p>
     </section>
 
     <section>
@@ -244,15 +264,21 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
         <span class="domain">기후테크 · 탄소회계 SaaS</span>
       </div>
       <ul class="work">
-        <li><b>Tansolution</b> (기업용 탄소회계 플랫폼, 2023.04~2026.05) — 고객사 담당자가 사용하는 웹 서비스(React)와 서버 일부 담당. 배출량 등록·조회, 대시보드/차트, 보고서, OCR 증빙 처리(수기 입력 → 확인 방식으로 전환) 등 핵심 기능 개발. 전체 기여자 9명 중 커밋 기준 2위 <span class="n">3,883 commits</span></li>
+        <li><b>Tansolution</b> (기업용 탄소회계 플랫폼, 2023.04~2026.05) — 고객사 담당자가 사용하는 웹 서비스(React)와 서버 일부 담당. 배출량 등록·조회, MACC·SBTi 등 도메인 특화 대시보드, 보고서 시스템(7종·PDF 출력), OCR 증빙 처리(수기 입력 → 확인 방식으로 전환), 협력사(Scope 3) 관리, MFA 인증, 제품 영문화 등 핵심 기능 개발. 전체 기여자 9명 중 커밋 기준 2위 <span class="n">3,883 commits</span></li>
         <li><b>LCA 솔루션</b> (전과정평가, 2026.04~) — 스프레드시트형 편집 그리드, 평가계수 관리·엑셀 다운로드, 결과 시각화(트리/표/차트). Vitest·MSW 단위 테스트와 ADR 문서화 병행 <span class="n">243 commits</span></li>
         <li><b>iM뱅크 프로젝트</b> (2025.09~2026.04) — 리워드 플로우, ESG 문의 페이지, JWT·GraphQL 인증 등 사용자 플로우 전반. 커밋 기준 2위 기여자 <span class="n">329 commits</span></li>
-        <li><b>Tanso</b> (탄소 절감 챌린지 서비스, 2025.03~2026.04) — 기업·지자체가 도입하고 직원이 참여하는 B2B2C 서비스. 참여자용·관리자용 화면을 함께 개발. 챌린지 폼·검증, FCM 푸시 연동, Apollo Client 토큰 갱신 로직 <span class="n">344 commits</span></li>
         <li><b>회사 랜딩 사이트</b> (2024.10~) — Next.js App Router + 한/영 i18n 사이트 단독 구축·운영 (커밋 기여율 약 81%). SEO/OG 메타, 콘택트 폼 안티봇(허니팟) 적용</li>
-        <li><b>광명시 프로젝트</b> (2024.11~12) — Next.js + GraphQL 웹을 메인 개발자로 단기 구축. 인증, 테이블/폼, S3 presigned 업로드 <span class="n">115 commits · 1위</span></li>
-        <li><b>E2E 테스트 자동화</b> (2024.12~2025.11) — Playwright 기반 배출량 등록 시나리오 자동 테스트 구축</li>
-        <li><b>서비스 기획 참여</b> (2022.12~2023.04) — 개발 착수 전 기획 단계에 참여. 기능정의서, 회원가입 프로세스 설계, 기능명세서, DB 모델링 등 산출물 작성에 참여했으며, 이후 동일 제품의 프론트엔드 개발을 맡아 기획–구현 전 과정을 경험</li>
       </ul>
+
+      <div class="work-more">
+        <h4>그 외 경험</h4>
+        <ul class="minor">
+          <li><b>Tanso</b><span>기업·지자체 도입 B2B2C 챌린지 서비스, 참여자·관리자 화면 개발 · 344 커밋</span></li>
+          <li><b>광명시 프로젝트</b><span>Next.js + GraphQL 웹 단기 구축, 메인 개발자 · 115 커밋 (전체 1위)</span></li>
+          <li><b>E2E 테스트 자동화</b><span>Playwright 기반 배출량 등록 시나리오 자동 테스트 · 56 커밋</span></li>
+          <li><b>서비스 기획 참여</b><span>기능정의서·회원가입 프로세스·DB 모델링 작성 (2022.12~2023.04)</span></li>
+        </ul>
+      </div>
     </section>
 
     <section>
@@ -263,7 +289,7 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
         <dt>UI</dt><dd><span class="chip">MUI</span><span class="chip">Radix UI</span><span class="chip">Tailwind CSS</span><span class="chip">Emotion</span><span class="chip">SCSS</span><span class="chip">Framer Motion</span></dd>
         <dt>시각화</dt><dd><span class="chip">ECharts</span><span class="chip">Chart.js</span><span class="chip">ApexCharts</span></dd>
         <dt>테스트</dt><dd><span class="chip">Playwright (E2E)</span><span class="chip">Vitest</span><span class="chip">Testing Library</span><span class="chip">MSW</span></dd>
-        <dt>기타</dt><dd><span class="chip">GraphQL Codegen</span><span class="chip">ExcelJS</span><span class="chip">Firebase FCM</span><span class="chip">JWT 인증</span><span class="chip">AWS S3 업로드</span></dd>
+        <dt>기타</dt><dd><span class="chip">GraphQL Codegen</span><span class="chip">ExcelJS</span><span class="chip">Firebase FCM</span><span class="chip">JWT · MFA 인증</span><span class="chip">AWS S3 업로드</span></dd>
       </dl>
     </section>
 
@@ -291,12 +317,16 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
       <h3>주요 작업</h3>
       <ul>
         <li><b>초기 기획 참여</b> — 개발 착수 전(2022.12~2023.04) 기능정의서, 회원가입 프로세스 레이아웃, 기능명세서, DB 모델링 등 기획 산출물 작성에 참여</li>
-        <li><b>배출량 관리 핵심 화면</b> — 배출원 등록 폼(EmissionCreateForm), 배출량 목록(EmissionList), 조건별 필터링</li>
-        <li><b>대시보드·차트</b> — 연도별 배출량 시각화, 지분율 반영 계산(equity ratio) 표시 로직</li>
-        <li><b>OCR 증빙 문서 처리 UI</b> — 고객사 담당자가 월 수십 건의 배출량 데이터를 증빙 문서와 대조해 수기 입력하던 작업을 OCR 인식 + 검증 방식으로 전환. 문서 썸네일 자동 줌(ZoomableThumbnail)과 페이지 인덱스 연동으로 검토 중인 항목의 위치를 자동으로 띄워, 담당자가 입력 대신 확인만 하도록 함</li>
-        <li><b>보고서</b> — 사회공헌(social) 보고서 화면 개발</li>
+        <li><b>배출량 관리 핵심 화면</b> — 배출원 등록 폼(EmissionCreateForm), 배출량 목록(EmissionList), 조건별 필터링. 대량 입력 상황을 위해 무한 스크롤과 제출 큐(submit queue)를 도입해 연속 저장 시 유실·중복 방지</li>
+        <li><b>대시보드·데이터 시각화</b> — 연도별·기간별 배출량, 지분율 반영 계산(equity ratio), Scope 2·3 범례 구성에 더해 <b>MACC(한계저감비용) 차트</b>, <b>SBTi 감축목표 대시보드</b>, 감축 시나리오 시뮬레이션 대시보드, 누적 배출 StackERChart 등 도메인 특화 차트 구현. 차트–테이블 하이라이트 연동, 호버·클릭 인터랙션, 스켈레톤 로딩으로 탐색형 대시보드 구성</li>
+        <li><b>OCR 증빙 문서 처리 UI</b> — 고객사 담당자가 월 수십 건의 배출량 데이터를 증빙 문서와 대조해 수기 입력하던 작업을 OCR 인식 + 검증 방식으로 전환. 썸네일 자동 줌(ZoomableThumbnail)과 페이지 인덱스 연동으로 검토 중인 항목 위치를 자동 표시하여, 입력 작업을 확인 작업으로 축소</li>
+        <li><b>보고서 시스템</b> — 기본 배출량 보고서(BasicReport / BasicNewReport)를 중심으로 사회 부문(SocialSectorReport), 안전보건(SafetyHealthReport), 건설(ConstructionReport), 에너지, SBTi, 첨부 증빙(AttachedDocReport) 등 보고서 유형 다수 개발. 인쇄 전용 레이아웃(Print 컴포넌트)으로 PDF 출력까지 지원하고 국문·영문 양쪽 대응</li>
+        <li><b>제품 영문화(i18n)</b> — 해외 고객 대응을 위해 2024.12부터 제품 전반의 영문 버전 구축. 언어 전환 도입 후 로그인·배출량 등록·Scope 상세 모달 등 주요 화면과 기본 보고서·시뮬레이션 대시보드, 관리자 초대·계정 생성·MFA 이메일 템플릿까지 영문 대응. 배출계수 목록은 한글·영문 우선순위를 반영한 커스텀 정렬로 처리</li>
+        <li><b>협력사·조직 관리</b> — Scope 3(공급망) 배출량 수집을 위한 협력사 관리 기능. 법인등록번호·사업자등록번호 유효성 검사를 포함한 협력사 등록 폼(PartnerCompanyInfoForm), 협력사 데이터 요청 시트와 요청 메일 분기 처리, 조직 계층을 다루는 트리 테이블(OrganizationTable·CustomTreeItem) 개발</li>
+        <li><b>인증·보안</b> — 이메일 기반 다중 인증(MFA) 구현: 토큰 발급·검증 쿼리(createMFAToken / validateMFAToken)와 입력 폼, 시도 횟수 제한, 만료 토큰 처리 및 404 분기. MFA·계정 생성·협력사 요청 메일 템플릿을 국문·영문으로 대응</li>
+        <li><b>성능·안정성</b> — 배출량 목록 무한 스크롤, 라우트 단위 lazy loading과 청크 로드 실패 시 재시도(retryLazy), 연료 단위 변경의 낙관적 업데이트, ErrorBoundary 도입</li>
         <li><b>대기업 고객 대응</b> — 삼성·DRB 등 고객사별 요구사항 반영 및 커스터마이징 (커밋 이력 기준)</li>
-        <li><b>서버 사이드</b> — server/src(TypeScript) 수정 다수, API와 화면을 오가며 기능 단위로 완결성 있게 개발</li>
+        <li><b>서버 사이드</b> — server/src(TypeScript) 수정 다수, API와 화면을 오가며 기능 단위로 완결성 있게 개발. 모노레포 구조로의 서버 리팩터링 참여</li>
       </ul>
       <p class="tech"><span class="chip">React</span><span class="chip">JavaScript / TypeScript</span><span class="chip">MUI</span><span class="chip">Redux Toolkit</span><span class="chip">Apollo Client</span><span class="chip">ApexCharts</span></p>
     </article>
@@ -313,11 +343,11 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
       <ul>
         <li><b>스프레드시트형 편집 그리드(sheet-grid)</b> — 셀 편집 모드 전환 시 키보드 제어권 복구, IME(한글 입력)·Space·Delete 키 진입 처리 등 정교한 입력 UX</li>
         <li><b>평가계수 관리</b> — 흐름-DB 연결 검수 드로어, 편집/진행률 훅, 고객사(금호) 양식 xlsx 다운로드 + 진행률 표시</li>
-        <li><b>분석 결과 화면</b> — GTG 트리 테이블(커넥터·sticky 스크롤·정렬), 결과 트리/표/차트 통합 뷰</li>
-        <li><b>디자인 시스템</b> — ConfirmDialog 등 UI 프리미티브 제작, 타이포그래피 토큰 분리(typography.css)</li>
+        <li><b>분석 결과 화면</b> — GTG 트리 테이블(커넥터·sticky 스크롤·정렬), 결과 트리/표/차트 통합 뷰. 트리 통과선 렌더링을 TreeGuideCell로 공용화</li>
+        <li><b>디자인 시스템 구축</b> — Figma 디자인을 코드로 옮기며 UI 프리미티브 세트(button·tabs·tooltip·badge·chip·toggle·breadcrumb·combobox·input-group·라벨 결합 Field) 신설. chip은 variant/tone/size 3축으로 설계해 조합 가능하게 구성. ConfirmDialog(AlertDialog 기반)·ScrollableDialog 등 다이얼로그 프리미티브와 앵커형 토스트·코너 스낵바 2종의 알림 시스템 구축. 타이포그래피 토큰을 typography.css로, 형태 토큰을 primitives.css로 분리해 스케일·웨이트 체계 정립</li>
         <li><b>품질·문서화</b> — Vitest + Testing Library + MSW 단위 테스트, 테스트 실행 리포트, ADR 작성(feature folder 패턴 채택 등)</li>
       </ul>
-      <p class="tech"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">Radix UI</span><span class="chip">TanStack Table</span><span class="chip">ECharts</span><span class="chip">GraphQL Codegen</span><span class="chip">ExcelJS</span><span class="chip">Vitest</span><span class="chip">MSW</span></p>
+      <p class="tech"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">Radix UI</span><span class="chip">TanStack Table</span><span class="chip">ECharts</span><span class="chip">GraphQL Codegen</span><span class="chip">ExcelJS</span><span class="chip">react-virtual</span><span class="chip">sonner</span><span class="chip">Vitest</span><span class="chip">MSW</span></p>
     </article>
 
     <article class="proj" data-no="03">
@@ -397,8 +427,9 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
       </div>
       <h3>주요 작업</h3>
       <ul>
-        <li><b>시나리오 자동화</b> — Playwright 기반 Tansolution 배출량 등록: Scope 3 배출 테스트, 목록 필터 검증, 계정 연동 검증</li>
-        <li><b>안정화</b> — 국가별 테스트 데이터 구조화, 조건부 로직·타임아웃 튜닝</li>
+        <li><b>시나리오 자동화</b> — Playwright 기반 Tansolution 주요 플로우 커버: 배출량 등록(Scope 3 포함), 목록 필터·등록 현황 검증, 파일 업로드·다운로드, 회원가입·비밀번호 재설정, 계정 전환 및 국가 전환</li>
+        <li><b>테스트 데이터 설계</b> — 국가별·IPCC 계수별로 테스트 데이터를 구조화하고, 제품 버전에 맞춰 테스트 파일을 디렉터리로 분리해 회귀 테스트 관리</li>
+        <li><b>안정화</b> — 빈 데이터 상태 예외 처리, 다운로드 이벤트 대기 방식 개선, 타임아웃 튜닝(120초) 등 플레이키 테스트 제거</li>
         <li><b>실험</b> — MCP 연동 테스트(mcp_tester 브랜치)</li>
       </ul>
       <p class="tech"><span class="chip">TypeScript</span><span class="chip">Playwright</span></p>
@@ -407,9 +438,9 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
     <section class="wrap">
       <h2>종합 역량 요약</h2>
       <table class="summary">
-        <tr><th>핵심 도메인</th><td>탄소회계·ESG (배출량 산정, LCA, 금융권 ESG) — 3년 이상 도메인 지식 축적</td></tr>
+        <tr><th>핵심 도메인</th><td>탄소회계·ESG (Scope 1~3 배출량 산정, 공급망 데이터 수집, MACC·SBTi 감축 시나리오, LCA, 금융권 ESG) — 3년 이상 도메인 지식 축적</td></tr>
         <tr><th>주력</th><td>React/Next.js 기반 B2B 실무자용 웹·대시보드, 폼·테이블·차트 중심의 데이터 집약적 UI</td></tr>
-        <tr><th>폭</th><td>랜딩 사이트 단독 운영, 서버 GraphQL API 작성, E2E 자동화까지 커버</td></tr>
+        <tr><th>폭</th><td>기획 산출물 작성, 디자인 시스템 구축, MFA 인증·보안, 랜딩 사이트 단독 운영, 서버 GraphQL API 작성, E2E 자동화까지 커버</td></tr>
         <tr><th>일하는 방식</th><td>단위 테스트(Vitest·MSW)와 ADR 문서화 병행, 고객사 커스터마이징 대응 경험</td></tr>
       </table>
     </section>
@@ -448,8 +479,9 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
         <p class="lead">기업 온실가스 배출량 산정·보고 플랫폼에서, 고객사 담당자가 실제 업무에 쓰는 화면을 <strong>3년간</strong> 개발했습니다.</p>
         <ul>
           <li><b>기획 단계부터 참여</b> — 개발 착수 전 기능정의서·회원가입 프로세스·DB 모델링 작성에 참여한 뒤, 같은 제품의 프론트엔드를 맡아 기획–구현을 잇는 경험</li>
-          <li>배출량 등록 폼과 목록·필터, 연도별 대시보드 차트, 지분율 반영 계산 표시</li>
-          <li><b>OCR 증빙 문서 검증 UI</b> — 담당자가 월 수십 건의 배출량 데이터를 증빙 문서와 대조해 일일이 입력하던 작업이었습니다. OCR 인식 결과를 문서와 나란히 띄우고, 썸네일이 현재 검토 항목에 맞춰 자동 줌·페이지 이동되게 만들어 <strong>'입력'을 '확인'으로 바꿨습니다.</strong></li>
+          <li>배출량 등록 폼과 목록·필터, 지분율 반영 계산 표시</li>
+          <li><b>도메인 특화 대시보드</b> — MACC(한계저감비용) 차트, SBTi 감축목표 대시보드, 감축 시나리오 시뮬레이션 등 탄소회계 고유의 시각화 구현. 차트–테이블 하이라이트 연동으로 탐색형 UX 구성</li>
+          <li><b>OCR 증빙 문서 검증 UI</b> — 담당자가 월 수십 건의 데이터를 증빙과 대조해 일일이 입력하던 작업을, 인식 결과를 문서 옆에 띄우고 썸네일이 검토 항목에 맞춰 자동 줌·이동하도록 만들어 <strong>'입력'에서 '확인'으로 전환</strong></li>
           <li>삼성·DRB 등 고객사별 커스터마이징 대응 — B2B 제품에서 "고객마다 다른 요구"를 코드 구조로 흡수하는 경험</li>
           <li>프론트와 서버(TypeScript)를 오가며 기능 단위로 완결성 있게 개발</li>
         </ul>
@@ -468,7 +500,7 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
           <li><b>스프레드시트형 편집 그리드</b> — 셀 편집 모드 전환 시 키보드 제어권 복구, 한글 IME 조합·Space·Delete 키 진입 처리. 엑셀에 익숙한 실무자가 위화감 없이 쓰는 그리드</li>
           <li><b>평가계수 관리</b> — 흐름-DB 연결을 검수하는 드로어 UI, 고객사 양식 그대로의 xlsx 다운로드(진행률 표시)</li>
           <li><b>GTG 트리 테이블</b> — 트리 커넥터·sticky 스크롤·정렬이 조합된 복합 테이블</li>
-          <li>ConfirmDialog 프리미티브, 타이포그래피 토큰 시스템 등 디자인 시스템 기반 작업</li>
+          <li><b>디자인 시스템 구축</b> — Figma 디자인을 코드로 옮겨 UI 프리미티브 세트(button·tabs·tooltip·badge·chip·toggle·combobox·Field) 신설, ConfirmDialog·토스트/스낵바 알림 시스템 구축, 타이포그래피·형태 토큰 분리(typography.css / primitives.css)</li>
           <li>Vitest+MSW 단위 테스트와 테스트 리포트, ADR(feature folder 패턴 채택 등) 문서화</li>
         </ul>
         <figure class="shot">
