@@ -237,6 +237,9 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
     padding:16px 0 0;margin-top:22px;border-top:1px solid var(--line);
     break-inside:auto;
   }
+  /* 프로젝트마다 새 페이지에서 시작 (첫 프로젝트 제외) */
+  #view-career .proj:not(:first-of-type),
+  #view-portfolio .proj:not(:first-of-type){break-before:page}
   #view-career .proj::before{display:none}
   #view-career .proj h2{padding-right:0}
   #view-portfolio .proj h3{padding-right:0}
