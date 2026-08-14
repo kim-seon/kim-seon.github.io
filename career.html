@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>김선 — 기술경력서</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f1e8; --card:#fdfbf5; --ink:#1c2b22; --muted:#63705f;
+  --pine:#1e5c40; --deep:#12362a; --deeper:#0c241c; --lime:#d3ef5a; --line:#ddd5c3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'Pretendard Variable',Pretendard,sans-serif;color:var(--ink);background:var(--paper)}
+
+/* ---------- 상단 탭바 (공통 UI, 문서에는 포함되지 않음) ---------- */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:14px 24px;background:var(--card);border-bottom:1px solid var(--line);
+}
+.topbar .brand{font-family:'Noto Serif KR',serif;font-weight:900;color:var(--deep);font-size:15px;margin-right:auto}
+.topbar .tabs{display:flex;gap:8px;flex-wrap:wrap}
+.topbar button{font-family:inherit;cursor:pointer;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700}
+.topbar button.tab{color:var(--muted);background:var(--paper);border:1px solid var(--line);transition:all .15s ease}
+.topbar button.tab:hover{border-color:var(--pine);color:var(--pine)}
+.topbar button.tab.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.topbar button.print-btn{color:var(--deeper);background:var(--lime);border:1px solid var(--lime)}
+@media print{.topbar{display:none}}
+@media (max-width:640px){.topbar{padding:12px 16px}.topbar .brand{width:100%;margin-bottom:2px}}
+
+/* ---------- 뷰 전환 ---------- */
+.view{display:none}
+body[data-mode="resume"] #view-resume{display:block}
+body[data-mode="career"] #view-career{display:block}
+body[data-mode="portfolio"] #view-portfolio{display:block}
+
+/* ==================== 01. 이력서 ==================== */
+#view-resume{
+  font-size:15.5px;line-height:1.7;background:var(--paper);
+  background-image:radial-gradient(rgba(30,92,64,.05) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+#view-resume .sheet{max-width:860px;margin:0 auto;padding:48px 40px 96px}
+#view-resume .doc-label{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.35em;color:var(--pine);text-transform:uppercase;font-weight:700;margin-bottom:20px}
+#view-resume .doc-label::after{content:"";flex:1;height:1px;background:var(--line)}
+#view-resume h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.15;letter-spacing:-.01em}
+#view-resume h1 .accent{background:linear-gradient(transparent 62%,var(--lime) 62%,var(--lime) 94%,transparent 94%)}
+#view-resume .head-meta{margin-top:18px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:6px 18px}
+#view-resume .head-meta a{color:var(--pine);font-weight:600;text-decoration:none;border-bottom:1px solid var(--pine)}
+#view-resume .placeholder{color:#a4752e;background:#f6e8cf;border-radius:4px;padding:0 6px;font-weight:600;font-size:.92em}
+#view-resume .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:40px 0 8px;background:var(--card)}
+#view-resume .stat{padding:20px 22px;border-left:1px solid var(--line)}
+#view-resume .stat:first-child{border-left:none}
+#view-resume .stat b{display:block;font-family:'Noto Serif KR',serif;font-weight:900;font-size:26px;color:var(--deep);font-variant-numeric:tabular-nums;line-height:1.2;white-space:nowrap}
+#view-resume .stat span{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+#view-resume section{margin-top:56px}
+#view-resume h2{font-family:'Noto Serif KR',serif;font-weight:700;font-size:21px;display:flex;align-items:baseline;gap:14px;margin-bottom:22px;padding-top:18px;border-top:2px solid var(--ink)}
+#view-resume h2 .no{font-size:12px;letter-spacing:.25em;color:var(--pine);font-family:'Pretendard Variable',sans-serif;font-weight:700}
+#view-resume .intro p{font-size:16.5px;line-height:1.85;max-width:64ch}
+#view-resume .intro strong{background:linear-gradient(transparent 66%,var(--lime) 66%,var(--lime) 96%,transparent 96%)}
+#view-resume .job-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+#view-resume .job-head h3{font-size:18px;font-weight:800}
+#view-resume .job-head .period{color:var(--pine);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+#view-resume .job-head .domain{color:var(--muted);font-size:13.5px}
+#view-resume ul.work{list-style:none;margin-top:18px}
+#view-resume ul.work li{padding:13px 0 13px 26px;border-bottom:1px dashed var(--line);position:relative}
+#view-resume ul.work li::before{content:"";position:absolute;left:2px;top:22px;width:9px;height:9px;background:var(--lime);border:2px solid var(--pine);border-radius:50%}
+#view-resume ul.work b{color:var(--deep)}
+#view-resume ul.work .n{font-variant-numeric:tabular-nums;font-weight:700;color:var(--pine);background:#e8efdd;border-radius:5px;padding:1px 7px;font-size:12.5px;white-space:nowrap}
+#view-resume .work-more{margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+#view-resume .work-more h4{font-size:11.5px;letter-spacing:.2em;color:var(--pine);font-weight:700;text-transform:uppercase;margin-bottom:12px}
+#view-resume ul.minor{list-style:none}
+#view-resume ul.minor li{display:flex;flex-wrap:wrap;gap:2px 12px;padding:6px 0;font-size:14px;color:var(--muted)}
+#view-resume ul.minor b{color:var(--deep);font-weight:800;min-width:124px}
+#view-resume .skills{display:grid;grid-template-columns:130px 1fr;gap:12px 20px;font-size:14.5px}
+#view-resume .skills dt{font-weight:800;color:var(--pine);letter-spacing:.02em}
+#view-resume .skills dd{color:var(--ink)}
+#view-resume .chip{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:2px 11px;margin:2px 3px 2px 0;font-size:13px;font-weight:600}
+#view-resume .note{margin-top:64px;padding:16px 20px;border-left:4px solid var(--pine);background:var(--card);border-radius:0 10px 10px 0;font-size:13.5px;color:var(--muted)}
+@media print{
+  #view-resume{background:#fff;font-size:14px}
+  #view-resume .sheet{padding:0;max-width:none}
+  #view-resume h1{font-size:34px}
+  #view-resume .head-meta{margin-top:12px;font-size:13px}
+  #view-resume .stats{margin:22px 0 0}
+  #view-resume .stat{padding:13px 16px}
+  #view-resume .stat b{font-size:22px}
+  #view-resume section{margin-top:26px}
+  #view-resume h2{padding-top:12px;margin-bottom:14px;font-size:19px}
+  #view-resume .intro p{font-size:14.5px;line-height:1.7}
+  #view-resume ul.work li{padding:8px 0 8px 24px}
+  #view-resume ul.work li::before{top:16px}
+  #view-resume .skills{gap:8px 20px}
+  #view-resume .note{margin-top:28px;padding:12px 16px}
+}
+@media (max-width:560px){#view-resume .sheet{padding:40px 22px 72px}#view-resume .skills{grid-template-columns:1fr;gap:2px 0}#view-resume .skills dd{margin-bottom:10px}}
+
+/* ==================== 02. 기술경력서 ==================== */
+#view-career{
+  font-size:15.5px;line-height:1.7;background:var(--paper);
+  background-image:radial-gradient(rgba(30,92,64,.05) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+#view-career .sheet{max-width:900px;margin:0 auto;padding:48px 40px 96px}
+#view-career .doc-label{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.35em;color:var(--pine);text-transform:uppercase;font-weight:700;margin-bottom:20px}
+#view-career .doc-label::after{content:"";flex:1;height:1px;background:var(--line)}
+#view-career h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:clamp(32px,5.5vw,46px);line-height:1.2}
+#view-career h1 .accent{background:linear-gradient(transparent 62%,var(--lime) 62%,var(--lime) 94%,transparent 94%)}
+#view-career .head-meta{margin-top:14px;color:var(--muted);font-size:14px}
+#view-career .head-meta a{color:var(--pine);font-weight:600;text-decoration:none;border-bottom:1px solid var(--pine)}
+#view-career .placeholder{color:#a4752e;background:#f6e8cf;border-radius:4px;padding:0 6px;font-weight:600;font-size:.92em}
+#view-career .evidence{margin:32px 0 0;padding:14px 20px;background:var(--deep);color:#e9efdf;border-radius:12px;font-size:13.5px;display:flex;gap:10px;align-items:baseline}
+#view-career .evidence b{color:var(--lime);white-space:nowrap}
+#view-career .proj{margin-top:48px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px 34px;position:relative;overflow:hidden}
+#view-career .proj::before{content:attr(data-no);position:absolute;right:18px;top:2px;font-family:'Noto Serif KR',serif;font-weight:900;font-size:84px;color:rgba(30,92,64,.08);line-height:1}
+#view-career .proj h2{font-family:'Noto Serif KR',serif;font-weight:700;font-size:21px;color:var(--deep);padding-right:70px}
+#view-career .proj .sub{color:var(--muted);font-size:14px;margin-top:2px}
+#view-career .facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:16px 0 4px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13.5px}
+#view-career .facts b{color:var(--pine)}
+#view-career .facts .n{font-variant-numeric:tabular-nums;font-weight:800;color:var(--deep)}
+#view-career .proj p.desc{margin-top:14px;color:var(--ink);font-size:15px;max-width:66ch}
+#view-career .proj h3{font-size:13px;letter-spacing:.2em;color:var(--pine);margin-top:20px;text-transform:uppercase}
+#view-career .proj ul{list-style:none;margin-top:10px}
+#view-career .proj ul li{padding:9px 0 9px 22px;position:relative;border-bottom:1px dashed var(--line);font-size:14.5px}
+#view-career .proj ul li:last-child{border-bottom:none}
+#view-career .proj ul li::before{content:"";position:absolute;left:1px;top:17px;width:8px;height:8px;background:var(--lime);border:2px solid var(--pine);border-radius:50%}
+#view-career .proj ul b{color:var(--deep)}
+#view-career .proj h4.grp{font-size:13.5px;font-weight:800;color:var(--deep);margin-top:18px;display:flex;align-items:center;gap:9px}
+#view-career .proj h4.grp::before{content:"";width:16px;height:2px;background:var(--lime);border-radius:2px;flex:none}
+#view-career .proj h3+h4.grp{margin-top:10px}
+#view-career .proj h4.grp+ul{margin-top:4px}
+#view-career .tech{margin-top:14px}
+#view-career .chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:2px 11px;margin:2px 3px 2px 0;font-size:12.5px;font-weight:600}
+#view-career table.summary{width:100%;border-collapse:collapse;margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px}
+#view-career table.summary th,#view-career table.summary td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--line)}
+#view-career table.summary th{background:var(--deep);color:#e9efdf;font-weight:700;font-size:13px;letter-spacing:.08em;width:150px}
+#view-career table.summary tr:last-child td{border-bottom:none}
+#view-career section.wrap{margin-top:64px}
+#view-career section.wrap>h2{font-family:'Noto Serif KR',serif;font-weight:700;font-size:22px;padding-top:18px;border-top:2px solid var(--ink)}
+@media print{#view-career{background:#fff}#view-career .sheet{padding:20px 0}#view-career .proj{break-inside:avoid;border-color:#ccc}}
+@media (max-width:560px){#view-career .sheet{padding:40px 20px 72px}#view-career .proj{padding:24px 20px}}
+
+/* ==================== 03. 포트폴리오 ==================== */
+#view-portfolio{font-size:15.5px;line-height:1.7;background:var(--paper)}
+#view-portfolio .hero{
+  background:
+    radial-gradient(1100px 480px at 85% -10%, rgba(211,239,90,.16), transparent 60%),
+    radial-gradient(700px 420px at -10% 110%, rgba(30,92,64,.55), transparent 60%),
+    var(--deeper);
+  color:#eef3e4;position:relative;overflow:hidden;
+}
+#view-portfolio .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(238,243,228,.07) 1px,transparent 1px);background-size:22px 22px}
+#view-portfolio .hero-in{max-width:960px;margin:0 auto;padding:56px 40px 84px;position:relative;z-index:1}
+#view-portfolio .hero .kicker{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--lime);font-weight:700;display:flex;align-items:center;gap:14px}
+#view-portfolio .hero .kicker::after{content:"";width:64px;height:1px;background:rgba(211,239,90,.5)}
+#view-portfolio .hero h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:clamp(34px,6.5vw,58px);line-height:1.22;margin-top:22px;letter-spacing:-.01em}
+#view-portfolio .hero h1 em{font-style:normal;color:var(--lime)}
+#view-portfolio .hero .tagline{margin-top:22px;font-size:17px;color:#c4d0b8;max-width:56ch}
+#view-portfolio .hero .tagline b{color:#eef3e4}
+#view-portfolio .hero-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:44px;border-top:1px solid rgba(238,243,228,.18)}
+#view-portfolio .hstat{padding:20px 36px 0 0;margin-right:36px}
+#view-portfolio .hstat b{font-family:'Noto Serif KR',serif;font-weight:900;font-size:34px;color:var(--lime);font-variant-numeric:tabular-nums;display:block;line-height:1.25}
+#view-portfolio .hstat span{font-size:12.5px;color:#9fb096;letter-spacing:.04em}
+#view-portfolio .hero .contact{margin-top:36px;font-size:14px;color:#c4d0b8;display:flex;flex-wrap:wrap;gap:6px 20px}
+#view-portfolio .hero .contact a{color:var(--lime);text-decoration:none;font-weight:700;border-bottom:1px solid rgba(211,239,90,.4)}
+#view-portfolio .placeholder{color:#e8c887;background:rgba(232,200,135,.14);border-radius:4px;padding:0 6px;font-weight:600;font-size:.92em}
+#view-portfolio main .placeholder{color:#a4752e;background:#f6e8cf}
+#view-portfolio main{max-width:960px;margin:0 auto;padding:24px 40px 96px}
+#view-portfolio section{margin-top:72px}
+#view-portfolio .sec-head{display:flex;align-items:baseline;gap:16px;border-top:2px solid var(--ink);padding-top:18px;margin-bottom:8px}
+#view-portfolio .sec-head .no{font-size:12px;letter-spacing:.25em;color:var(--pine);font-weight:700}
+#view-portfolio .sec-head h2{font-family:'Noto Serif KR',serif;font-weight:900;font-size:26px}
+#view-portfolio .sec-sub{color:var(--muted);font-size:14px;margin-bottom:28px}
+#view-portfolio .proj{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 36px;margin-top:26px;position:relative;overflow:hidden}
+#view-portfolio .proj .badge{position:absolute;top:0;right:0;background:var(--deep);color:var(--lime);font-size:11.5px;font-weight:700;letter-spacing:.14em;padding:7px 16px;border-radius:0 0 0 14px;font-variant-numeric:tabular-nums}
+#view-portfolio .proj h3{font-family:'Noto Serif KR',serif;font-weight:700;font-size:22px;color:var(--deep);padding-right:120px}
+#view-portfolio .proj .meta{margin-top:6px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+#view-portfolio .proj .meta b{color:var(--pine)}
+#view-portfolio .proj p.lead{margin-top:16px;font-size:15.5px;max-width:64ch}
+#view-portfolio .proj p.lead strong{background:linear-gradient(transparent 64%,var(--lime) 64%,var(--lime) 94%,transparent 94%)}
+#view-portfolio .proj ul{list-style:none;margin-top:16px}
+#view-portfolio .proj ul li{padding:9px 0 9px 24px;position:relative;font-size:14.5px;border-bottom:1px dashed var(--line)}
+#view-portfolio .proj ul li:last-child{border-bottom:none}
+#view-portfolio .proj ul li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;background:var(--lime);border:2px solid var(--pine);border-radius:50%}
+#view-portfolio .proj ul b{color:var(--deep)}
+#view-portfolio .chips{margin-top:16px}
+/* 프로젝트 이미지 — .shot-ph를 <img>로 교체하면 그대로 적용됨 */
+#view-portfolio .shot{margin-top:22px}
+#view-portfolio .shot img{display:block;width:100%;border:1px solid var(--line);border-radius:12px}
+#view-portfolio .shot-ph{
+  aspect-ratio:16/9;border:1.5px dashed var(--line);border-radius:12px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  text-align:center;padding:18px;background:rgba(30,92,64,.03);
+  color:var(--muted);font-size:13px;line-height:1.6;
+}
+#view-portfolio .shot-ph b{color:var(--pine);font-size:13.5px}
+#view-portfolio .shot figcaption{margin-top:9px;font-size:12.5px;color:var(--muted)}
+@media print{#view-portfolio .shot-ph{display:none}}
+#view-portfolio .chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:2px 11px;margin:2px 3px 2px 0;font-size:12.5px;font-weight:600;color:var(--ink)}
+#view-portfolio .etc{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px}
+#view-portfolio .etc .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+#view-portfolio .etc .card h4{font-size:15.5px;color:var(--deep)}
+#view-portfolio .etc .card .n{font-size:12px;color:var(--pine);font-weight:700;font-variant-numeric:tabular-nums}
+#view-portfolio .etc .card p{font-size:13.5px;color:var(--muted);margin-top:8px}
+#view-portfolio .stack{display:grid;grid-template-columns:110px 1fr;gap:14px 22px;font-size:14.5px;margin-top:8px}
+#view-portfolio .stack dt{font-weight:800;color:var(--pine)}
+#view-portfolio .ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:8px}
+#view-portfolio .way{background:var(--deep);color:#dfe8d2;border-radius:16px;padding:26px 26px 24px;position:relative;overflow:hidden}
+#view-portfolio .way::before{content:attr(data-icon);font-size:44px;position:absolute;right:14px;top:8px;opacity:.18}
+#view-portfolio .way h4{color:var(--lime);font-size:16px;font-weight:800}
+#view-portfolio .way p{font-size:13.5px;margin-top:10px;line-height:1.75}
+#view-portfolio .verify{margin-top:72px;padding:20px 24px;border:1.5px dashed var(--pine);border-radius:14px;font-size:13.5px;color:var(--muted);background:var(--card)}
+#view-portfolio .verify b{color:var(--pine)}
+@media print{#view-portfolio .hero{background:var(--deep)}#view-portfolio .proj{break-inside:avoid}}
+@media (max-width:600px){
+  #view-portfolio .hero-in{padding:56px 22px 64px}
+  #view-portfolio main{padding:16px 22px 72px}
+  #view-portfolio .proj{padding:26px 20px}
+  #view-portfolio .proj h3{padding-right:0}
+  #view-portfolio .stack{grid-template-columns:1fr;gap:2px 0}
+  #view-portfolio .stack dd{margin-bottom:10px}
+}
+</style>
+
+<style>
+.topbar a.tab{font-family:inherit;cursor:pointer;border-radius:999px;padding:7px 16px;font-size:13px;
+  font-weight:700;text-decoration:none;color:var(--muted);background:var(--paper);
+  border:1px solid var(--line);transition:all .15s ease}
+.topbar a.tab:hover{border-color:var(--pine);color:var(--pine)}
+</style>
+</head>
+<body data-mode="career">
+<nav class="topbar">
+  <span class="brand">김선</span>
+  <div class="tabs"><a class="tab" href="resume.html">이력서</a><a class="tab" href="portfolio.html">포트폴리오</a><a class="tab" href="index.html">전체 보기</a></div>
+  <button class="print-btn" id="printBtn">PDF로 저장</button>
+</nav>
+
+<!-- ==================== 02. 기술경력서 ==================== -->
+<div class="view" id="view-career">
+  <div class="sheet">
+    <p class="doc-label">Technical Career History</p>
+    <h1><span class="accent">기술경력서</span></h1>
+    <p class="head-meta">김선 · 프론트엔드 개발자 (4년차) · GitHub <a href="https://github.com/LunaSeonKim">@LunaSeonKim</a></p>
+
+    <div class="evidence"><b>근거 기반</b><span>아래 작업 내역과 커밋 수치는 실제 GitHub 커밋 기록(TEAM-Livit 조직, 총 5,050 커밋 — 본인 계정 2개 합산)에 근거하며, 서비스 이용 기업 수는 운영 데이터 기준입니다.</span></div>
+
+    <article class="proj" data-no="01">
+      <h2>Tansolution — 기업용 탄소회계 SaaS 플랫폼</h2>
+      <p class="sub">기업의 온실가스 배출량을 산정·관리·보고하는 B2B SaaS. 기획 단계부터 참여.</p>
+      <div class="facts">
+        <span><b>기간</b> 기획 2022.12 – 2023.04 · 개발 2023.04 – 2026.05</span>
+        <span><b>역할</b> 프론트엔드(고객사 담당자용 웹) + 서버 일부</span>
+        <span><b>기여</b> <span class="n">3,883</span> 커밋 · 9명 중 2위</span>
+      </div>
+      <h3>주요 작업</h3>
+      <h4 class="grp">제품 기능</h4>
+      <ul>
+        <li><b>배출량 관리 핵심 화면</b> — 배출원 등록 폼과 목록·조건별 필터링 개발. 담당자가 한 번에 수십 건을 입력하는 상황을 위해 제출 큐를 두어 연속 저장 시 유실·중복을 막음</li>
+        <li><b>대시보드·데이터 시각화</b> — 연도별 배출량과 지분율 반영 계산(equity ratio)에 더해 <b>MACC(한계저감비용)</b>, <b>SBTi 감축목표</b>, 감축 시나리오 시뮬레이션 등 도메인 특화 차트 구현. 차트–테이블 하이라이트를 연동해 숫자에서 원인으로 파고드는 탐색 흐름 구성</li>
+        <li><b>OCR 증빙 문서 처리 UI</b> — 월 수십 건의 배출량 데이터를 증빙 문서와 대조해 수기 입력하던 작업을, 인식 결과를 문서 옆에 띄우고 썸네일이 검토 항목에 맞춰 자동 줌·이동하도록 만들어 <b>'입력'에서 '확인'으로</b> 전환</li>
+        <li><b>보고서 시스템</b> — 배출량 기본 보고서를 포함해 사회 부문·안전보건·건설·에너지·SBTi 등 <b>7종</b> 개발. 인쇄 전용 레이아웃으로 PDF 출력까지 지원하고 국문·영문 양쪽 대응</li>
+      </ul>
+      <h4 class="grp">확장 · 운영</h4>
+      <ul>
+        <li><b>제품 영문화(i18n)</b> — 해외 고객 대응을 위해 2024.12부터 제품 전반을 영문화. 로그인·배출량 등록·보고서·대시보드에서 초대·MFA 이메일 템플릿까지 확장했고, 배출계수 목록은 한글·영문 우선순위를 반영한 커스텀 정렬로 처리</li>
+        <li><b>협력사·조직 관리</b> — Scope 3(공급망) 배출량 수집을 위한 협력사 등록·데이터 요청 기능. 법인·사업자등록번호 유효성 검사와 요청 메일 분기를 붙이고, 조직 계층은 트리 테이블로 다룸</li>
+        <li><b>인증·보안</b> — 이메일 기반 다중 인증(MFA) 구현: 토큰 발급·검증, 시도 횟수 제한, 만료 토큰 처리까지. 관련 메일 템플릿을 국문·영문으로 대응</li>
+        <li><b>성능·안정성</b> — 배출량 목록 무한 스크롤, 라우트 단위 lazy loading과 청크 로드 실패 시 재시도(retryLazy), 연료 단위 변경의 낙관적 업데이트, ErrorBoundary 도입</li>
+      </ul>
+      <h4 class="grp">기획 · 고객 대응 · 서버</h4>
+      <ul>
+        <li><b>초기 기획 참여</b> — 개발 착수 전(2022.12~2023.04) 기능정의서, 회원가입 프로세스 레이아웃, 기능명세서, DB 모델링 등 기획 산출물 작성에 참여</li>
+        <li><b>대기업 고객 대응</b> — 삼성·DRB 등 고객사별 요구사항 반영 및 커스터마이징 (커밋 이력 기준)</li>
+        <li><b>서버 사이드</b> — server/src(TypeScript) 수정 다수, API와 화면을 오가며 기능 단위로 완결성 있게 개발. 모노레포 구조로의 서버 리팩터링 참여</li>
+      </ul>
+      <p class="tech"><span class="chip">React</span><span class="chip">JavaScript / TypeScript</span><span class="chip">MUI</span><span class="chip">Redux Toolkit</span><span class="chip">Apollo Client</span><span class="chip">ApexCharts</span></p>
+    </article>
+
+    <article class="proj" data-no="02">
+      <h2>LCA-Project — 전과정평가(LCA) 솔루션</h2>
+      <p class="sub">제품 전과정평가(Life Cycle Assessment) 신규 솔루션. 최신 스택으로 구축하며 테스트·문서화 문화까지 함께 조성.</p>
+      <div class="facts">
+        <span><b>기간</b> 2026.04 – 진행 중</span>
+        <span><b>역할</b> 프론트엔드 + 서버 API 일부</span>
+        <span><b>기여</b> <span class="n">243</span> 커밋</span>
+      </div>
+      <h3>주요 작업</h3>
+      <ul>
+        <li><b>스프레드시트형 편집 그리드(sheet-grid)</b> — 셀 편집 모드 전환 시 키보드 제어권 복구, IME(한글 입력)·Space·Delete 키 진입 처리 등 정교한 입력 UX</li>
+        <li><b>평가계수 관리</b> — 흐름-DB 연결 검수 드로어, 편집/진행률 훅, 고객사(금호) 양식 xlsx 다운로드 + 진행률 표시</li>
+        <li><b>분석 결과 화면</b> — GTG 트리 테이블(커넥터·sticky 스크롤·정렬), 결과 트리/표/차트 통합 뷰. 트리 통과선 렌더링을 TreeGuideCell로 공용화</li>
+        <li><b>디자인 시스템 구축</b> — Figma 디자인을 UI 프리미티브 10종(button·chip·combobox·Field 등)과 다이얼로그·알림 시스템으로 코드화. 타이포그래피·형태 토큰을 파일로 분리해 스케일 체계를 세우고, chip은 variant/tone/size 3축으로 설계해 조합만으로 쓰이게 함</li>
+        <li><b>품질·문서화</b> — Vitest + Testing Library + MSW 단위 테스트와 실행 리포트. ADR로 아키텍처 결정을 남기고(feature folder 패턴 채택 등), 산정 로직 원천 분석·작업 로그를 문서로 남겨 인수인계 가능한 상태 유지</li>
+      </ul>
+      <p class="tech"><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">Radix UI</span><span class="chip">TanStack Table</span><span class="chip">ECharts</span><span class="chip">GraphQL Codegen</span><span class="chip">ExcelJS</span><span class="chip">react-virtual</span><span class="chip">sonner</span><span class="chip">Vitest</span><span class="chip">MSW</span></p>
+    </article>
+
+    <article class="proj" data-no="03">
+      <h2>iM뱅크 프로젝트 — 금융권 ESG 서비스</h2>
+      <p class="sub">은행의 기업 고객이 ESG 간이진단을 받고 리포트와 리워드까지 받는 웹 서비스. 모바일용·데스크톱용 화면을 각각 두고 접속 기기에 따라 분기하며, 기업당 담당자 1명이 참여합니다.</p>
+      <div class="facts">
+        <span><b>기간</b> 2025.09 – 2026.04</span>
+        <span><b>역할</b> 프론트엔드</span>
+        <span><b>기여</b> <span class="n">329</span> 커밋 · 4명 중 2위</span>
+        <span><b>운영</b> 배포 후 누적 이용 기업 <span class="n">약 800곳</span> (기업당 담당자 1명 · 2026.08 기준)</span>
+      </div>
+      <h3>주요 작업</h3>
+      <ul>
+        <li><b>ESG 간이진단(Quick Check)</b> — 문항 응답·저장 플로우 전반. 앞선 답변에 따라 뒤 문항을 걸러내는 조건부 분기와 자동 응답 처리, 잠긴 챕터 접근 차단, 진행률 바 단계 표시</li>
+        <li><b>중단 지점 이어하기</b> — 세션 스토리지에 진행 상태를 남겨 재방문 시 이어하기 모달을 띄우고, 이탈·뒤로가기·비정상 접근은 안내 모달과 리다이렉트로 처리</li>
+        <li><b>휴대폰 본인인증</b> — 인증 타이머와 코드 입력 자동 포커스, 전화번호에 하이픈을 자동 삽입하면서도 커서 위치가 튀지 않도록 보정. 리워드 선택→인증 화면은 카드 전환 애니메이션으로 연결</li>
+        <li><b>리워드·기프티쇼 연동</b> — Giftishow API로 쿠폰 발급·상품 관리·잔액 조회를 붙이고, 리포트 완료 시 리워드 모달과 쿠폰 자동 발송 처리. 리워드가 기업당 1명에게만 나가는 구조라 수령 자격 확인과 진입 조건 분기를 함께 설계</li>
+        <li><b>PDF 리포트</b> — 표지·로고를 포함한 ESG 분석 리포트 컴포넌트 개발, iOS·Android 각각의 다운로드 방식 분기 처리</li>
+        <li><b>기기별 대응</b> — 접속 기기에 따라 진입 화면을 나누고 데스크톱 전용 레이아웃을 별도 구성. 삼성 브라우저의 뒤로가기 동작 차이를 분기 처리하고, 반응형 훅 기반으로 스크롤·모달·플로팅 버튼 동작과 모바일 호버 스타일을 보정</li>
+        <li><b>인증·세션</b> — JWT + GraphQL 인증 구현. 토큰 저장소를 localStorage에서 sessionStorage로 옮기고 AuthGuard·useAuth 훅으로 인증 상태를 일원화, 임시 사용자(isTemp) 분기 처리</li>
+        <li><b>전역 에러·운영</b> — GraphQL 에러를 한곳에서 받는 ApolloErrorSnackbar, 청크 로드 실패 시 재시도(retryLazy), Google Analytics 페이지뷰 추적</li>
+        <li><b>도메인 로직</b> — 배출량 계산 보정(도시가스 LPG→LNG 계수 수정), 온실가스 계산기 화면, 사업자등록번호 검증 UI, 캐릭터 모달 등 인터랙션</li>
+      </ul>
+      <p class="tech"><span class="chip">React</span><span class="chip">MUI</span><span class="chip">Redux Toolkit</span><span class="chip">Apollo Client</span><span class="chip">Auth0 / JWT</span><span class="chip">react-pdf</span></p>
+    </article>
+
+    <article class="proj" data-no="04">
+      <h2>Tanso — 탄소 절감 챌린지 서비스 (B2B2C)</h2>
+      <p class="sub">기업·지자체가 도입하고 소속 직원이 직접 참여하는 탄소 절감 챌린지 서비스. 직원의 출퇴근·업무 이동을 기록해 탄소 감축량으로 환산합니다. 참여자 화면(client)과 관리자 화면(admin)으로 나뉩니다.</p>
+      <div class="facts">
+        <span><b>기간</b> 기획 2022.12 – 2023.04 · 개발 2025.03 – 2026.04</span>
+        <span><b>역할</b> 프론트엔드</span>
+        <span><b>기여</b> <span class="n">344</span> 커밋</span>
+      </div>
+      <h3>주요 작업</h3>
+      <ul>
+        <li><b>지도 기반 이동 경로 기록</b> — 장소 검색과 최근 검색 기록, 자주 가는 장소·즐겨찾기로 출발지와 목적지를 잡고, 경유지를 넣고 빼면 지도 위 경로가 다시 그려지도록 구성. 경로 전체가 한 화면에 담기도록 지도 중심과 축척을 자동 조정(fitBounds)하고, 바텀시트와 지도를 함께 다루는 모바일 인터랙션 설계</li>
+        <li><b>이동수단 3종 통합</b> — 생성 방식이 제각각인 도보·차량·해외 출장을 하나의 기록 흐름으로 통합. 차량은 등록 차량·차종을 골라 경로를 만들고, 해외 출장은 공항 목록으로 처리. 도보 경로는 별도 최적화 작업 진행</li>
+        <li><b>기록을 배출량 데이터로 연결</b> — 그린 경로를 일별 이동 이력(TransportHistories)으로 변환해 날짜별로 조회·수정하게 하고, 이동 거리와 수단이 탄소 감축량 산정으로 이어지도록 단위 환산 로직을 바로잡음</li>
+        <li><b>챌린지</b> — 챌린지 생성 폼(날짜 검증·에러 처리), 챌린지 캘린더와 D-day 표시, 일별 챌린지·챌린지 피드 화면</li>
+        <li><b>공통 컴포넌트·테마</b> — React Hook Form과 결합한 날짜 입력(RHFDate·RHFDatePicker), 커스텀 데이트 피커·기간 선택기·날짜 슬라이더 제작. 타이포그래피 variant와 버튼·체크박스·입력 테마 오버라이드 정의, 스낵바 라이브러리 전환</li>
+        <li><b>인증 흐름</b> — Apollo Client 레벨 토큰 제거/갱신(refreshToken), 로그아웃 시 상태 초기화</li>
+        <li><b>알림</b> — Firebase FCM 푸시 연동과 알림 권한 설정 화면, 이메일 템플릿</li>
+        <li><b>초기 기획 참여</b> — 개발 착수 전(2022.12~2023.04) 관리자 기능정의서, 참여자 정보·후기 관리 화면 기획 산출물 작성에 참여</li>
+      </ul>
+      <p class="tech"><span class="chip">React</span><span class="chip">MUI</span><span class="chip">Apollo Client</span><span class="chip">지도 API</span><span class="chip">Firebase FCM</span><span class="chip">Redux Toolkit</span></p>
+    </article>
+
+    <article class="proj" data-no="05">
+      <h2>회사 랜딩 사이트 (국문 / 영문)</h2>
+      <div class="facts">
+        <span><b>국문</b> 2024.10 – 2026.04 · <span class="n">81</span> 커밋 · 기여율 약 81% (사실상 단독 운영)</span>
+        <span><b>영문</b> 2023.08 – 2024.02 · <span class="n">42</span> 커밋</span>
+      </div>
+      <h3>주요 작업</h3>
+      <ul>
+        <li><b>i18n 구축</b> — Next.js App Router + <code>[locale]</code> 라우팅으로 한/영 사이트 구축</li>
+        <li><b>페이지 전반</b> — 홈·회사소개·제품·인사이트·뉴스·콘택트 페이지 구축. 회사소개는 GSAP(ScrollTrigger·ScrollSmoother·SplitText)으로 sticky 풀페이지 스크롤과 텍스트 분할 애니메이션 구성</li>
+        <li><b>반응형</b> — useResponsive 훅을 만들어 헤더·푸터부터 각 페이지까지 모바일 대응, 로딩 컴포넌트·토스트 정비</li>
+        <li><b>SEO</b> — 파비콘, 메타데이터, Open Graph 이미지·URL 처리</li>
+        <li><b>안티봇</b> — 콘택트 폼 허니팟 + 타임스탬프 검증 구현</li>
+      </ul>
+      <p class="tech"><span class="chip">Next.js (App Router)</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">Radix UI</span><span class="chip">GSAP</span><span class="chip">next-intl</span><span class="chip">SCSS</span><span class="chip">MUI (영문)</span></p>
+    </article>
+
+    <article class="proj" data-no="06">
+      <h2>광명시 프로젝트</h2>
+      <div class="facts">
+        <span><b>기간</b> 2024.11 – 2024.12 (단기)</span>
+        <span><b>역할</b> 메인 개발자</span>
+        <span><b>기여</b> <span class="n">68</span> 커밋</span>
+      </div>
+      <h3>주요 작업</h3>
+      <ul>
+        <li><b>단기 구축</b> — Next.js + GraphQL 웹 서비스를 한 달여 만에 구축: 인증(privateRoute), 게시물·이력 관리, 약관·개인정보 페이지</li>
+        <li><b>계정·권한</b> — 계정 정보 수정과 비밀번호 변경, 회원 목록과 사용자 권한 관리 화면, 탈퇴 처리</li>
+        <li><b>컴포넌트</b> — 정렬·페이지네이션을 갖춘 커스텀 테이블, 폼·모달·토스트, 파일 업로드(S3 createPresignedPost)</li>
+        <li><b>서버</b> — GraphQL 리졸버 일부 직접 작성(auth, history, post)과 예외 처리</li>
+      </ul>
+      <p class="tech"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">GraphQL</span><span class="chip">SCSS</span><span class="chip">AWS S3</span></p>
+    </article>
+
+    <article class="proj" data-no="07">
+      <h2>E2E 테스트 자동화 (Tester)</h2>
+      <div class="facts">
+        <span><b>기간</b> 2024.12 – 2025.11</span>
+        <span><b>기여</b> <span class="n">56</span> 커밋</span>
+      </div>
+      <h3>주요 작업</h3>
+      <ul>
+        <li><b>시나리오 자동화</b> — Playwright 기반 Tansolution 주요 플로우 커버: 배출량 등록(Scope 3 포함), 목록 필터·등록 현황 검증, 파일 업로드·다운로드, 회원가입·비밀번호 재설정, 계정 전환 및 국가 전환</li>
+        <li><b>테스트 데이터 설계</b> — 국가별·IPCC 계수별로 테스트 데이터를 구조화하고, 제품 버전에 맞춰 테스트 파일을 디렉터리로 분리해 회귀 테스트 관리</li>
+        <li><b>안정화</b> — 빈 데이터 상태 예외 처리, 다운로드 이벤트 대기 방식 개선, 타임아웃 튜닝(120초) 등 플레이키 테스트 제거</li>
+        <li><b>실험</b> — MCP 연동 테스트(mcp_tester 브랜치)</li>
+      </ul>
+      <p class="tech"><span class="chip">TypeScript</span><span class="chip">Playwright</span></p>
+    </article>
+
+    <section class="wrap">
+      <h2>종합 역량 요약</h2>
+      <table class="summary">
+        <tr><th>핵심 도메인</th><td>탄소회계·ESG (Scope 1~3 배출량 산정, 공급망 데이터 수집, MACC·SBTi 감축 시나리오, LCA, 금융권 ESG) — 3년 이상 도메인 지식 축적</td></tr>
+        <tr><th>주력</th><td>React/Next.js 기반 B2B 실무자용 웹·대시보드, 폼·테이블·차트 중심의 데이터 집약적 UI</td></tr>
+        <tr><th>폭</th><td>기획 산출물 작성, 디자인 시스템 구축, MFA 인증·보안, 랜딩 사이트 단독 운영, 서버 GraphQL API 작성, E2E 자동화까지 커버</td></tr>
+        <tr><th>일하는 방식</th><td>단위 테스트(Vitest·MSW)와 ADR 문서화 병행, 고객사 커스터마이징 대응 경험. Claude Code·Cursor 등 AI 협업 개발 도구를 실무 워크플로에 적극 활용</td></tr>
+      </table>
+    </section>
+  </div>
+</div>
+
+<script>
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>

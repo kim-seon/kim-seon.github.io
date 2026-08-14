@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>김선 — 포트폴리오</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f1e8; --card:#fdfbf5; --ink:#1c2b22; --muted:#63705f;
+  --pine:#1e5c40; --deep:#12362a; --deeper:#0c241c; --lime:#d3ef5a; --line:#ddd5c3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'Pretendard Variable',Pretendard,sans-serif;color:var(--ink);background:var(--paper)}
+
+/* ---------- 상단 탭바 (공통 UI, 문서에는 포함되지 않음) ---------- */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:14px 24px;background:var(--card);border-bottom:1px solid var(--line);
+}
+.topbar .brand{font-family:'Noto Serif KR',serif;font-weight:900;color:var(--deep);font-size:15px;margin-right:auto}
+.topbar .tabs{display:flex;gap:8px;flex-wrap:wrap}
+.topbar button{font-family:inherit;cursor:pointer;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700}
+.topbar button.tab{color:var(--muted);background:var(--paper);border:1px solid var(--line);transition:all .15s ease}
+.topbar button.tab:hover{border-color:var(--pine);color:var(--pine)}
+.topbar button.tab.on{background:var(--deep);color:#fff;border-color:var(--deep)}
+.topbar button.print-btn{color:var(--deeper);background:var(--lime);border:1px solid var(--lime)}
+@media print{.topbar{display:none}}
+@media (max-width:640px){.topbar{padding:12px 16px}.topbar .brand{width:100%;margin-bottom:2px}}
+
+/* ---------- 뷰 전환 ---------- */
+.view{display:none}
+body[data-mode="resume"] #view-resume{display:block}
+body[data-mode="career"] #view-career{display:block}
+body[data-mode="portfolio"] #view-portfolio{display:block}
+
+/* ==================== 01. 이력서 ==================== */
+#view-resume{
+  font-size:15.5px;line-height:1.7;background:var(--paper);
+  background-image:radial-gradient(rgba(30,92,64,.05) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+#view-resume .sheet{max-width:860px;margin:0 auto;padding:48px 40px 96px}
+#view-resume .doc-label{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.35em;color:var(--pine);text-transform:uppercase;font-weight:700;margin-bottom:20px}
+#view-resume .doc-label::after{content:"";flex:1;height:1px;background:var(--line)}
+#view-resume h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:clamp(34px,6vw,52px);line-height:1.15;letter-spacing:-.01em}
+#view-resume h1 .accent{background:linear-gradient(transparent 62%,var(--lime) 62%,var(--lime) 94%,transparent 94%)}
+#view-resume .head-meta{margin-top:18px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:6px 18px}
+#view-resume .head-meta a{color:var(--pine);font-weight:600;text-decoration:none;border-bottom:1px solid var(--pine)}
+#view-resume .placeholder{color:#a4752e;background:#f6e8cf;border-radius:4px;padding:0 6px;font-weight:600;font-size:.92em}
+#view-resume .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:40px 0 8px;background:var(--card)}
+#view-resume .stat{padding:20px 22px;border-left:1px solid var(--line)}
+#view-resume .stat:first-child{border-left:none}
+#view-resume .stat b{display:block;font-family:'Noto Serif KR',serif;font-weight:900;font-size:26px;color:var(--deep);font-variant-numeric:tabular-nums;line-height:1.2;white-space:nowrap}
+#view-resume .stat span{font-size:12.5px;color:var(--muted);letter-spacing:.02em}
+#view-resume section{margin-top:56px}
+#view-resume h2{font-family:'Noto Serif KR',serif;font-weight:700;font-size:21px;display:flex;align-items:baseline;gap:14px;margin-bottom:22px;padding-top:18px;border-top:2px solid var(--ink)}
+#view-resume h2 .no{font-size:12px;letter-spacing:.25em;color:var(--pine);font-family:'Pretendard Variable',sans-serif;font-weight:700}
+#view-resume .intro p{font-size:16.5px;line-height:1.85;max-width:64ch}
+#view-resume .intro strong{background:linear-gradient(transparent 66%,var(--lime) 66%,var(--lime) 96%,transparent 96%)}
+#view-resume .job-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+#view-resume .job-head h3{font-size:18px;font-weight:800}
+#view-resume .job-head .period{color:var(--pine);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+#view-resume .job-head .domain{color:var(--muted);font-size:13.5px}
+#view-resume ul.work{list-style:none;margin-top:18px}
+#view-resume ul.work li{padding:13px 0 13px 26px;border-bottom:1px dashed var(--line);position:relative}
+#view-resume ul.work li::before{content:"";position:absolute;left:2px;top:22px;width:9px;height:9px;background:var(--lime);border:2px solid var(--pine);border-radius:50%}
+#view-resume ul.work b{color:var(--deep)}
+#view-resume ul.work .n{font-variant-numeric:tabular-nums;font-weight:700;color:var(--pine);background:#e8efdd;border-radius:5px;padding:1px 7px;font-size:12.5px;white-space:nowrap}
+#view-resume .work-more{margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+#view-resume .work-more h4{font-size:11.5px;letter-spacing:.2em;color:var(--pine);font-weight:700;text-transform:uppercase;margin-bottom:12px}
+#view-resume ul.minor{list-style:none}
+#view-resume ul.minor li{display:flex;flex-wrap:wrap;gap:2px 12px;padding:6px 0;font-size:14px;color:var(--muted)}
+#view-resume ul.minor b{color:var(--deep);font-weight:800;min-width:124px}
+#view-resume .skills{display:grid;grid-template-columns:130px 1fr;gap:12px 20px;font-size:14.5px}
+#view-resume .skills dt{font-weight:800;color:var(--pine);letter-spacing:.02em}
+#view-resume .skills dd{color:var(--ink)}
+#view-resume .chip{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:2px 11px;margin:2px 3px 2px 0;font-size:13px;font-weight:600}
+#view-resume .note{margin-top:64px;padding:16px 20px;border-left:4px solid var(--pine);background:var(--card);border-radius:0 10px 10px 0;font-size:13.5px;color:var(--muted)}
+@media print{
+  #view-resume{background:#fff;font-size:14px}
+  #view-resume .sheet{padding:0;max-width:none}
+  #view-resume h1{font-size:34px}
+  #view-resume .head-meta{margin-top:12px;font-size:13px}
+  #view-resume .stats{margin:22px 0 0}
+  #view-resume .stat{padding:13px 16px}
+  #view-resume .stat b{font-size:22px}
+  #view-resume section{margin-top:26px}
+  #view-resume h2{padding-top:12px;margin-bottom:14px;font-size:19px}
+  #view-resume .intro p{font-size:14.5px;line-height:1.7}
+  #view-resume ul.work li{padding:8px 0 8px 24px}
+  #view-resume ul.work li::before{top:16px}
+  #view-resume .skills{gap:8px 20px}
+  #view-resume .note{margin-top:28px;padding:12px 16px}
+}
+@media (max-width:560px){#view-resume .sheet{padding:40px 22px 72px}#view-resume .skills{grid-template-columns:1fr;gap:2px 0}#view-resume .skills dd{margin-bottom:10px}}
+
+/* ==================== 02. 기술경력서 ==================== */
+#view-career{
+  font-size:15.5px;line-height:1.7;background:var(--paper);
+  background-image:radial-gradient(rgba(30,92,64,.05) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+#view-career .sheet{max-width:900px;margin:0 auto;padding:48px 40px 96px}
+#view-career .doc-label{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.35em;color:var(--pine);text-transform:uppercase;font-weight:700;margin-bottom:20px}
+#view-career .doc-label::after{content:"";flex:1;height:1px;background:var(--line)}
+#view-career h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:clamp(32px,5.5vw,46px);line-height:1.2}
+#view-career h1 .accent{background:linear-gradient(transparent 62%,var(--lime) 62%,var(--lime) 94%,transparent 94%)}
+#view-career .head-meta{margin-top:14px;color:var(--muted);font-size:14px}
+#view-career .head-meta a{color:var(--pine);font-weight:600;text-decoration:none;border-bottom:1px solid var(--pine)}
+#view-career .placeholder{color:#a4752e;background:#f6e8cf;border-radius:4px;padding:0 6px;font-weight:600;font-size:.92em}
+#view-career .evidence{margin:32px 0 0;padding:14px 20px;background:var(--deep);color:#e9efdf;border-radius:12px;font-size:13.5px;display:flex;gap:10px;align-items:baseline}
+#view-career .evidence b{color:var(--lime);white-space:nowrap}
+#view-career .proj{margin-top:48px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px 34px;position:relative;overflow:hidden}
+#view-career .proj::before{content:attr(data-no);position:absolute;right:18px;top:2px;font-family:'Noto Serif KR',serif;font-weight:900;font-size:84px;color:rgba(30,92,64,.08);line-height:1}
+#view-career .proj h2{font-family:'Noto Serif KR',serif;font-weight:700;font-size:21px;color:var(--deep);padding-right:70px}
+#view-career .proj .sub{color:var(--muted);font-size:14px;margin-top:2px}
+#view-career .facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:16px 0 4px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:13.5px}
+#view-career .facts b{color:var(--pine)}
+#view-career .facts .n{font-variant-numeric:tabular-nums;font-weight:800;color:var(--deep)}
+#view-career .proj p.desc{margin-top:14px;color:var(--ink);font-size:15px;max-width:66ch}
+#view-career .proj h3{font-size:13px;letter-spacing:.2em;color:var(--pine);margin-top:20px;text-transform:uppercase}
+#view-career .proj ul{list-style:none;margin-top:10px}
+#view-career .proj ul li{padding:9px 0 9px 22px;position:relative;border-bottom:1px dashed var(--line);font-size:14.5px}
+#view-career .proj ul li:last-child{border-bottom:none}
+#view-career .proj ul li::before{content:"";position:absolute;left:1px;top:17px;width:8px;height:8px;background:var(--lime);border:2px solid var(--pine);border-radius:50%}
+#view-career .proj ul b{color:var(--deep)}
+#view-career .proj h4.grp{font-size:13.5px;font-weight:800;color:var(--deep);margin-top:18px;display:flex;align-items:center;gap:9px}
+#view-career .proj h4.grp::before{content:"";width:16px;height:2px;background:var(--lime);border-radius:2px;flex:none}
+#view-career .proj h3+h4.grp{margin-top:10px}
+#view-career .proj h4.grp+ul{margin-top:4px}
+#view-career .tech{margin-top:14px}
+#view-career .chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:2px 11px;margin:2px 3px 2px 0;font-size:12.5px;font-weight:600}
+#view-career table.summary{width:100%;border-collapse:collapse;margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px}
+#view-career table.summary th,#view-career table.summary td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--line)}
+#view-career table.summary th{background:var(--deep);color:#e9efdf;font-weight:700;font-size:13px;letter-spacing:.08em;width:150px}
+#view-career table.summary tr:last-child td{border-bottom:none}
+#view-career section.wrap{margin-top:64px}
+#view-career section.wrap>h2{font-family:'Noto Serif KR',serif;font-weight:700;font-size:22px;padding-top:18px;border-top:2px solid var(--ink)}
+@media print{#view-career{background:#fff}#view-career .sheet{padding:20px 0}#view-career .proj{break-inside:avoid;border-color:#ccc}}
+@media (max-width:560px){#view-career .sheet{padding:40px 20px 72px}#view-career .proj{padding:24px 20px}}
+
+/* ==================== 03. 포트폴리오 ==================== */
+#view-portfolio{font-size:15.5px;line-height:1.7;background:var(--paper)}
+#view-portfolio .hero{
+  background:
+    radial-gradient(1100px 480px at 85% -10%, rgba(211,239,90,.16), transparent 60%),
+    radial-gradient(700px 420px at -10% 110%, rgba(30,92,64,.55), transparent 60%),
+    var(--deeper);
+  color:#eef3e4;position:relative;overflow:hidden;
+}
+#view-portfolio .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(238,243,228,.07) 1px,transparent 1px);background-size:22px 22px}
+#view-portfolio .hero-in{max-width:960px;margin:0 auto;padding:56px 40px 84px;position:relative;z-index:1}
+#view-portfolio .hero .kicker{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--lime);font-weight:700;display:flex;align-items:center;gap:14px}
+#view-portfolio .hero .kicker::after{content:"";width:64px;height:1px;background:rgba(211,239,90,.5)}
+#view-portfolio .hero h1{font-family:'Noto Serif KR',serif;font-weight:900;font-size:clamp(34px,6.5vw,58px);line-height:1.22;margin-top:22px;letter-spacing:-.01em}
+#view-portfolio .hero h1 em{font-style:normal;color:var(--lime)}
+#view-portfolio .hero .tagline{margin-top:22px;font-size:17px;color:#c4d0b8;max-width:56ch}
+#view-portfolio .hero .tagline b{color:#eef3e4}
+#view-portfolio .hero-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:44px;border-top:1px solid rgba(238,243,228,.18)}
+#view-portfolio .hstat{padding:20px 36px 0 0;margin-right:36px}
+#view-portfolio .hstat b{font-family:'Noto Serif KR',serif;font-weight:900;font-size:34px;color:var(--lime);font-variant-numeric:tabular-nums;display:block;line-height:1.25}
+#view-portfolio .hstat span{font-size:12.5px;color:#9fb096;letter-spacing:.04em}
+#view-portfolio .hero .contact{margin-top:36px;font-size:14px;color:#c4d0b8;display:flex;flex-wrap:wrap;gap:6px 20px}
+#view-portfolio .hero .contact a{color:var(--lime);text-decoration:none;font-weight:700;border-bottom:1px solid rgba(211,239,90,.4)}
+#view-portfolio .placeholder{color:#e8c887;background:rgba(232,200,135,.14);border-radius:4px;padding:0 6px;font-weight:600;font-size:.92em}
+#view-portfolio main .placeholder{color:#a4752e;background:#f6e8cf}
+#view-portfolio main{max-width:960px;margin:0 auto;padding:24px 40px 96px}
+#view-portfolio section{margin-top:72px}
+#view-portfolio .sec-head{display:flex;align-items:baseline;gap:16px;border-top:2px solid var(--ink);padding-top:18px;margin-bottom:8px}
+#view-portfolio .sec-head .no{font-size:12px;letter-spacing:.25em;color:var(--pine);font-weight:700}
+#view-portfolio .sec-head h2{font-family:'Noto Serif KR',serif;font-weight:900;font-size:26px}
+#view-portfolio .sec-sub{color:var(--muted);font-size:14px;margin-bottom:28px}
+#view-portfolio .proj{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 36px;margin-top:26px;position:relative;overflow:hidden}
+#view-portfolio .proj .badge{position:absolute;top:0;right:0;background:var(--deep);color:var(--lime);font-size:11.5px;font-weight:700;letter-spacing:.14em;padding:7px 16px;border-radius:0 0 0 14px;font-variant-numeric:tabular-nums}
+#view-portfolio .proj h3{font-family:'Noto Serif KR',serif;font-weight:700;font-size:22px;color:var(--deep);padding-right:120px}
+#view-portfolio .proj .meta{margin-top:6px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+#view-portfolio .proj .meta b{color:var(--pine)}
+#view-portfolio .proj p.lead{margin-top:16px;font-size:15.5px;max-width:64ch}
+#view-portfolio .proj p.lead strong{background:linear-gradient(transparent 64%,var(--lime) 64%,var(--lime) 94%,transparent 94%)}
+#view-portfolio .proj ul{list-style:none;margin-top:16px}
+#view-portfolio .proj ul li{padding:9px 0 9px 24px;position:relative;font-size:14.5px;border-bottom:1px dashed var(--line)}
+#view-portfolio .proj ul li:last-child{border-bottom:none}
+#view-portfolio .proj ul li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;background:var(--lime);border:2px solid var(--pine);border-radius:50%}
+#view-portfolio .proj ul b{color:var(--deep)}
+#view-portfolio .chips{margin-top:16px}
+/* 프로젝트 이미지 — .shot-ph를 <img>로 교체하면 그대로 적용됨 */
+#view-portfolio .shot{margin-top:22px}
+#view-portfolio .shot img{display:block;width:100%;border:1px solid var(--line);border-radius:12px}
+#view-portfolio .shot-ph{
+  aspect-ratio:16/9;border:1.5px dashed var(--line);border-radius:12px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  text-align:center;padding:18px;background:rgba(30,92,64,.03);
+  color:var(--muted);font-size:13px;line-height:1.6;
+}
+#view-portfolio .shot-ph b{color:var(--pine);font-size:13.5px}
+#view-portfolio .shot figcaption{margin-top:9px;font-size:12.5px;color:var(--muted)}
+@media print{#view-portfolio .shot-ph{display:none}}
+#view-portfolio .chip{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:2px 11px;margin:2px 3px 2px 0;font-size:12.5px;font-weight:600;color:var(--ink)}
+#view-portfolio .etc{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:8px}
+#view-portfolio .etc .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+#view-portfolio .etc .card h4{font-size:15.5px;color:var(--deep)}
+#view-portfolio .etc .card .n{font-size:12px;color:var(--pine);font-weight:700;font-variant-numeric:tabular-nums}
+#view-portfolio .etc .card p{font-size:13.5px;color:var(--muted);margin-top:8px}
+#view-portfolio .stack{display:grid;grid-template-columns:110px 1fr;gap:14px 22px;font-size:14.5px;margin-top:8px}
+#view-portfolio .stack dt{font-weight:800;color:var(--pine)}
+#view-portfolio .ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:8px}
+#view-portfolio .way{background:var(--deep);color:#dfe8d2;border-radius:16px;padding:26px 26px 24px;position:relative;overflow:hidden}
+#view-portfolio .way::before{content:attr(data-icon);font-size:44px;position:absolute;right:14px;top:8px;opacity:.18}
+#view-portfolio .way h4{color:var(--lime);font-size:16px;font-weight:800}
+#view-portfolio .way p{font-size:13.5px;margin-top:10px;line-height:1.75}
+#view-portfolio .verify{margin-top:72px;padding:20px 24px;border:1.5px dashed var(--pine);border-radius:14px;font-size:13.5px;color:var(--muted);background:var(--card)}
+#view-portfolio .verify b{color:var(--pine)}
+@media print{#view-portfolio .hero{background:var(--deep)}#view-portfolio .proj{break-inside:avoid}}
+@media (max-width:600px){
+  #view-portfolio .hero-in{padding:56px 22px 64px}
+  #view-portfolio main{padding:16px 22px 72px}
+  #view-portfolio .proj{padding:26px 20px}
+  #view-portfolio .proj h3{padding-right:0}
+  #view-portfolio .stack{grid-template-columns:1fr;gap:2px 0}
+  #view-portfolio .stack dd{margin-bottom:10px}
+}
+</style>
+
+<style>
+.topbar a.tab{font-family:inherit;cursor:pointer;border-radius:999px;padding:7px 16px;font-size:13px;
+  font-weight:700;text-decoration:none;color:var(--muted);background:var(--paper);
+  border:1px solid var(--line);transition:all .15s ease}
+.topbar a.tab:hover{border-color:var(--pine);color:var(--pine)}
+</style>
+</head>
+<body data-mode="portfolio">
+<nav class="topbar">
+  <span class="brand">김선</span>
+  <div class="tabs"><a class="tab" href="resume.html">이력서</a><a class="tab" href="career.html">기술경력서</a><a class="tab" href="index.html">전체 보기</a></div>
+  <button class="print-btn" id="printBtn">PDF로 저장</button>
+</nav>
+
+<!-- ==================== 03. 포트폴리오 ==================== -->
+<div class="view" id="view-portfolio">
+  <header class="hero">
+    <div class="hero-in">
+      <p class="kicker">Portfolio · Frontend Engineer</p>
+      <h1>탄소회계라는 복잡한 도메인을,<br><em>폼·테이블·차트</em>로<br>이해 가능하게 만듭니다</h1>
+      <p class="tagline"><b>김선</b> — 기후테크 도메인 4년차 프론트엔드 개발자. 3년간 한 제품의 초기 구축부터 대기업 고객 대응까지 겪었습니다. 화면만 만들지 않고 서버 API를 직접 작성하고, E2E 테스트를 자동화하고, ADR로 결정을 기록합니다.</p>
+      <div class="hero-stats">
+        <div class="hstat"><b>3y 8m</b><span>리빗 연속 재직</span></div>
+        <div class="hstat"><b>2/9</b><span>주력 제품 기여 순위</span></div>
+        <div class="hstat"><b>81%</b><span>랜딩 사이트 기여율</span></div>
+        <div class="hstat"><b>~800</b><span>iM뱅크 서비스 이용 기업</span></div>
+      </div>
+      <p class="contact">
+        <a href="https://github.com/LunaSeonKim">github.com/LunaSeonKim</a>
+        <a href="mailto:lte08098@gmail.com">lte08098@gmail.com</a>
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="sec-head"><span class="no">01</span><h2>대표 프로젝트</h2></div>
+      <p class="sec-sub">작업 내역과 커밋 수치는 GitHub 커밋 기록에서 검증된 것만 담았고, 서비스 이용 기업 수는 운영 데이터 기준입니다.</p>
+
+      <article class="proj">
+        <span class="badge">3,883 COMMITS · TOP 2/9</span>
+        <h3>Tansolution — 기업용 탄소회계 SaaS</h3>
+        <p class="meta"><b>2023.04 – 2026.05</b> · React · MUI · Apollo/GraphQL · ApexCharts</p>
+        <p class="lead">기업 온실가스 배출량 산정·보고 플랫폼에서, 고객사 담당자가 실제 업무에 쓰는 화면을 <strong>3년간</strong> 개발했습니다.</p>
+        <ul>
+          <li><b>기획 단계부터 참여</b> — 개발 착수 전 기능정의서·회원가입 프로세스·DB 모델링 작성에 참여한 뒤, 같은 제품의 프론트엔드를 맡아 기획–구현을 잇는 경험</li>
+          <li>배출량 등록 폼과 목록·필터, 지분율 반영 계산 표시</li>
+          <li><b>도메인 특화 대시보드</b> — MACC(한계저감비용) 차트, SBTi 감축목표 대시보드, 감축 시나리오 시뮬레이션 등 탄소회계 고유의 시각화 구현. 차트–테이블 하이라이트 연동으로 탐색형 UX 구성</li>
+          <li><b>OCR 증빙 문서 검증 UI</b> — 담당자가 월 수십 건의 데이터를 증빙과 대조해 일일이 입력하던 작업을, 인식 결과를 문서 옆에 띄우고 썸네일이 검토 항목에 맞춰 자동 줌·이동하도록 만들어 <strong>'입력'에서 '확인'으로 전환</strong></li>
+          <li>삼성·DRB 등 고객사별 커스터마이징 대응 — B2B 제품에서 "고객마다 다른 요구"를 코드 구조로 흡수하는 경험</li>
+          <li>프론트와 서버(TypeScript)를 오가며 기능 단위로 완결성 있게 개발</li>
+        </ul>
+      </article>
+
+      <article class="proj">
+        <span class="badge">243 COMMITS · 진행 중</span>
+        <h3>LCA 솔루션 — 전과정평가 플랫폼</h3>
+        <p class="meta"><b>2026.04 –</b> · TypeScript · Vite · Tailwind · Radix · TanStack Table · ECharts · Vitest · MSW</p>
+        <p class="lead">신규 제품을 최신 스택으로 구축하고 있습니다. 아래는 <strong>기술적으로 가장 도전적인 작업들</strong>입니다.</p>
+        <ul>
+          <li><b>스프레드시트형 편집 그리드</b> — 셀 편집 모드 전환 시 키보드 제어권 복구, 한글 IME 조합·Space·Delete 키 진입 처리. 엑셀에 익숙한 실무자가 위화감 없이 쓰는 그리드</li>
+          <li><b>평가계수 관리</b> — 흐름-DB 연결을 검수하는 드로어 UI, 고객사 양식 그대로의 xlsx 다운로드(진행률 표시)</li>
+          <li><b>GTG 트리 테이블</b> — 트리 커넥터·sticky 스크롤·정렬이 조합된 복합 테이블</li>
+          <li><b>디자인 시스템 구축</b> — Figma 디자인을 코드로 옮겨 UI 프리미티브 세트(button·tabs·tooltip·badge·chip·toggle·combobox·Field) 신설, ConfirmDialog·토스트/스낵바 알림 시스템 구축, 타이포그래피·형태 토큰 분리(typography.css / primitives.css)</li>
+          <li>Vitest+MSW 단위 테스트와 테스트 리포트, ADR(feature folder 패턴 채택 등) 문서화</li>
+        </ul>
+      </article>
+
+      <article class="proj">
+        <span class="badge">329 COMMITS · TOP 2/4</span>
+        <h3>iM뱅크 프로젝트 — 금융권 ESG 서비스</h3>
+        <p class="meta"><b>2025.09 – 2026.04</b> · React · MUI · Apollo/GraphQL · JWT · Giftishow API</p>
+        <p class="lead">은행의 기업 고객이 <strong>간이진단 → 리포트 → 리워드</strong>까지 끊기지 않고 도달해야 하는 서비스. 모바일과 데스크톱 화면을 따로 만들고 접속 기기에 따라 분기했습니다. 배포 후 지금까지 <strong>약 800개 기업</strong>이 이용했습니다. 사내 실무자용 화면만 만들다가, <strong>각자 다른 기기로 한 번씩 들어오는 외부 사용자</strong>를 상대한 경험입니다.</p>
+        <ul>
+          <li><b>ESG 간이진단</b> — 앞선 답변에 따라 뒤 문항을 걸러내는 조건부 분기와 자동 응답 처리, 잠긴 챕터 접근 차단, 진행률 단계 표시</li>
+          <li><b>이탈 방지와 이어하기</b> — 세션 스토리지로 중단 지점을 기억해 재방문 시 이어하기 모달을 띄우고, 이탈·뒤로가기·비정상 접근은 안내 모달과 리다이렉트로 처리</li>
+          <li><b>기기별 대응</b> — 기기별 진입 화면 분기와 데스크톱 전용 레이아웃, 삼성 브라우저의 뒤로가기 동작 차이 분기, iOS·Android PDF 다운로드 방식 분기. 실기기에 올려야 드러나는 문제들 대응</li>
+          <li><b>본인인증 디테일</b> — 전화번호에 하이픈이 자동으로 붙어도 커서 위치가 튀지 않도록 보정, 인증 타이머와 코드 입력 자동 포커스</li>
+          <li><b>기프티쇼 API 리워드</b> — 쿠폰 발급·상품 관리·잔액 조회 연동, 리포트 완료 시 자동 발송. 리워드가 기업당 1명에게만 나가는 구조라 수령 자격 확인을 함께 처리</li>
+          <li><b>배출량 계산 계수 보정(LPG→LNG)</b> — 도메인 지식이 코드 정확성으로 이어진 사례</li>
+        </ul>
+      </article>
+
+      <article class="proj">
+        <span class="badge">344 COMMITS · B2B2C</span>
+        <h3>Tanso — 탄소 절감 챌린지 서비스</h3>
+        <p class="meta"><b>2025.03 – 2026.04</b> · React · MUI · Apollo/GraphQL · 지도 API · Firebase FCM</p>
+        <p class="lead">기업·지자체가 도입하면 소속 직원이 참여하는 챌린지 서비스에서, <strong>직원의 이동을 지도에 기록해 탄소 감축량으로 환산</strong>하는 흐름을 만들었습니다.</p>
+        <ul>
+          <li><b>지도 기반 이동 경로 기록</b> — 장소 검색·최근 검색·즐겨찾기로 출발지와 목적지를 잡고, 경유지를 넣고 빼면 경로가 다시 그려짐. 경로 전체가 한 화면에 담기도록 지도 중심·축척을 자동 조정(fitBounds)</li>
+          <li><b>이동수단 3종 통합</b> — 도보·차량·해외 출장. 차량은 등록 차량·차종을 골라 경로를 만들고, 해외는 공항 목록으로 처리. 도보 경로는 별도 최적화 작업 진행</li>
+          <li><b>지도가 곧 입력 장치</b> — 그린 경로가 일별 이동 이력으로 변환돼 거리·수단이 그대로 감축량 산정의 입력이 됨. 계산 단위 환산 오류를 잡아낸 것도 이 흐름을 알고 있었기에 가능</li>
+          <li>바텀시트와 지도를 함께 다루는 모바일 인터랙션, FCM 푸시·알림 권한 설정</li>
+        </ul>
+      </article>
+
+      <article class="proj">
+        <span class="badge">기여율 81% · 단독 운영</span>
+        <h3>회사 랜딩 사이트 — 단독 구축·운영</h3>
+        <p class="meta"><b>2024.10 –</b> · Next.js App Router · next-intl · Tailwind · Radix · GSAP</p>
+        <p class="lead">회사 공식 사이트를 한/영 두 벌로 <strong>혼자 구축하고</strong>, 2년 가까이 콘텐츠까지 직접 운영하고 있습니다.</p>
+        <ul>
+          <li><code>[locale]</code> 라우팅 기반 한/영 사이트를 혼자 구축하고 지속 운영</li>
+          <li>SEO/OG 메타·파비콘, GSAP 기반 스크롤 애니메이션과 반응형 대응</li>
+          <li><b>콘택트 폼 스팸 차단</b> — 허니팟 + 타임스탬프 검증으로 봇 차단 구현</li>
+        </ul>
+        <figure class="shot">
+          <img src="images/landing.jpg" alt="리빗 랜딩 사이트 메인 화면 — 탄소 배출 관리가 기업 경영의 일상화가 될 수 있도록" loading="lazy">
+          <figcaption>단독 구축·운영한 한/영 i18n 랜딩 사이트</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="no">02</span><h2>그 외 경험</h2></div>
+      <div class="etc">
+        <div class="card">
+          <h4>광명시 프로젝트 — 메인 개발</h4><span class="n">68 commits</span>
+          <p>Next.js+GraphQL 단기 구축, 서버 리졸버(auth/history/post)까지 직접 작성</p>
+        </div>
+        <div class="card">
+          <h4>Playwright E2E 자동화</h4><span class="n">56 commits</span>
+          <p>배출량 등록 시나리오·필터 검증 자동 테스트, 국가별 테스트 데이터 구조화</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="no">03</span><h2>기술 스택</h2></div>
+      <dl class="stack">
+        <dt>주력</dt><dd><span class="chip">TypeScript</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Vite</span><span class="chip">GraphQL (Apollo · Codegen)</span><span class="chip">Tailwind</span><span class="chip">Radix UI</span><span class="chip">MUI</span></dd>
+        <dt>시각화</dt><dd><span class="chip">ECharts</span><span class="chip">Chart.js</span><span class="chip">ApexCharts</span></dd>
+        <dt>품질</dt><dd><span class="chip">Playwright</span><span class="chip">Vitest</span><span class="chip">Testing Library</span><span class="chip">MSW</span></dd>
+        <dt>AI 활용</dt><dd><span class="chip">Claude Code</span><span class="chip">Cursor</span></dd>
+        <dt>기타</dt><dd><span class="chip">Redux Toolkit</span><span class="chip">React Hook Form</span><span class="chip">TanStack Table</span><span class="chip">GSAP</span><span class="chip">지도 API</span><span class="chip">ExcelJS</span><span class="chip">Firebase FCM</span><span class="chip">AWS S3</span></dd>
+      </dl>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="no">04</span><h2>일하는 방식</h2></div>
+      <div class="ways">
+        <div class="way" data-icon="🧭"><h4>기획부터 붙습니다</h4><p>기능정의서와 회원가입 프로세스 설계에 참여한 뒤, 같은 제품의 화면을 직접 구현했습니다. 무엇을 왜 만드는지 아는 상태로 코드를 씁니다.</p></div>
+        <div class="way" data-icon="🔨"><h4>끝까지 만듭니다</h4><p>화면에서 막히면 서버 코드를 열어 API를 고치고, 배포 후엔 E2E 테스트로 지킵니다.</p></div>
+        <div class="way" data-icon="📝"><h4>기록합니다</h4><p>ADR로 아키텍처 결정을 남기고, 테스트 실행 리포트를 문서화합니다. 다음 사람이 "왜 이렇게 했는지"를 코드 밖에서 찾을 수 있게 합니다.</p></div>
+        <div class="way" data-icon="🤖"><h4>AI와 함께 일합니다</h4><p>Claude Code·Cursor 등 AI 협업 개발 도구를 실무 워크플로에 적극 활용합니다. 반복 작업과 초안은 도구에 맡기고, 설계 판단과 검증은 직접 합니다.</p></div>
+        <div class="way" data-icon="🌱"><h4>도메인을 팝니다</h4><p>배출계수, 지분율 산정, LCA 영향범주 같은 도메인 개념을 이해하고 UI로 옮깁니다.</p></div>
+      </div>
+    </section>
+
+    <p class="verify"><b>검증 가능성</b> — 본 포트폴리오의 작업 내역과 커밋 수치는 GitHub 커밋 기록으로 검증 가능하며, 서비스 이용 기업 수는 운영 데이터 기준입니다. (비공개 리포지토리로, 요청 시 상세 기여 내역 제공 가능) 회사 제품 화면은 비공개 자료라 이 공개본에서는 제외했으며, 면접 시 시연·제공 가능합니다.</p>
+  </main>
+</div>
+
+<script>
+document.getElementById('printBtn').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>
