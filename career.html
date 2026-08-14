@@ -142,7 +142,7 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
 #view-career table.summary tr:last-child td{border-bottom:none}
 #view-career section.wrap{margin-top:64px}
 #view-career section.wrap>h2{font-family:'Noto Serif KR',serif;font-weight:700;font-size:22px;padding-top:18px;border-top:2px solid var(--ink)}
-@media print{#view-career{background:#fff}#view-career .sheet{padding:20px 0}#view-career .proj{break-inside:avoid;border-color:#ccc}}
+@media print{#view-career{background:#fff}#view-career .sheet{padding:20px 0}}
 @media (max-width:560px){#view-career .sheet{padding:40px 20px 72px}#view-career .proj{padding:24px 20px}}
 
 /* ==================== 03. 포트폴리오 ==================== */
@@ -216,7 +216,7 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
 #view-portfolio .way p{font-size:13.5px;margin-top:10px;line-height:1.75}
 #view-portfolio .verify{margin-top:72px;padding:20px 24px;border:1.5px dashed var(--pine);border-radius:14px;font-size:13.5px;color:var(--muted);background:var(--card)}
 #view-portfolio .verify b{color:var(--pine)}
-@media print{#view-portfolio .hero{background:var(--deep)}#view-portfolio .proj{break-inside:avoid}}
+@media print{#view-portfolio .hero{background:var(--deep)}}
 @media (max-width:600px){
   #view-portfolio .hero-in{padding:56px 22px 64px}
   #view-portfolio main{padding:16px 22px 72px}
@@ -224,6 +224,56 @@ body[data-mode="portfolio"] #view-portfolio{display:block}
   #view-portfolio .proj h3{padding-right:0}
   #view-portfolio .stack{grid-template-columns:1fr;gap:2px 0}
   #view-portfolio .stack dd{margin-bottom:10px}
+}
+/* ==================== 인쇄 공통 (마지막에 와야 앞 규칙을 덮음) ==================== */
+@media print{
+  @page{margin:12mm}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#fff}
+
+  /* 카드가 페이지 경계에 걸리면 배경·테두리가 잘린다 → 인쇄에서는 평면 구획으로 */
+  #view-career .proj,#view-portfolio .proj{
+    background:none;border:none;border-radius:0;overflow:visible;
+    padding:16px 0 0;margin-top:22px;border-top:1px solid var(--line);
+    break-inside:auto;
+  }
+  #view-career .proj::before{display:none}
+  #view-career .proj h2{padding-right:0}
+  #view-portfolio .proj h3{padding-right:0}
+  #view-portfolio .proj .badge{
+    position:static;display:inline-block;border-radius:6px;
+    padding:3px 10px;margin-bottom:8px;
+  }
+
+  /* 쪼개지면 안 되는 단위 (전부 한 페이지보다 작음) */
+  #view-resume .stats,#view-resume ul.work li,#view-resume ul.minor li,#view-resume .note,
+  #view-career .evidence,#view-career .facts,#view-career table.summary,#view-career .proj ul li,
+  #view-portfolio .hero,#view-portfolio .proj ul li,#view-portfolio .etc .card,
+  #view-portfolio .way,#view-portfolio .shot,#view-portfolio .verify{
+    break-inside:avoid;
+  }
+
+  /* 제목만 페이지 끝에 남지 않게 */
+  h1,h2,h3,h4,.doc-label,.sec-head,.job-head,#view-career .proj .sub,#view-portfolio .proj .meta{
+    break-after:avoid;
+  }
+
+  /* 인쇄 여백 조이기 */
+  #view-portfolio .hero-in{padding:26px 22px 30px}
+  #view-portfolio .hero h1{font-size:30px;margin-top:14px}
+  #view-portfolio .hero .tagline{margin-top:14px;font-size:14px}
+  #view-portfolio .hero-stats{margin-top:20px}
+  #view-portfolio .hstat{padding:14px 16px 0 0;margin-right:16px}
+  #view-portfolio .hstat b{font-size:22px}
+  #view-portfolio .hstat span{font-size:11px}
+  #view-portfolio .hero .contact{margin-top:18px}
+  #view-portfolio main{max-width:none;padding:0}
+  #view-portfolio section{margin-top:26px}
+  #view-portfolio .sec-head{padding-top:14px;margin-bottom:4px}
+  #view-portfolio .sec-sub{margin-bottom:12px}
+  #view-career .sheet{max-width:none}
+  #view-career section.wrap{margin-top:28px}
+  img{max-width:100%}
 }
 </style>
 
